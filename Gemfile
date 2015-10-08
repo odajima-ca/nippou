@@ -53,4 +53,7 @@ group :development, :test do
   gem 'factory_girl_rails'
 
   gem 'annotate'
+
+  gem 'rails_best_practices'
+  gem 'guard-rails_best_practices', github: 'logankoester/guard-rails_best_practices'
 end
