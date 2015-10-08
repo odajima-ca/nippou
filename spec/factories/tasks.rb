@@ -18,11 +18,10 @@
 
 FactoryGirl.define do
   factory :task do
-    category nil
-name "MyString"
-description "MyText"
-status "MyString"
-completed_at "2015-10-08 19:29:49"
+    sequence(:category) { FactoryGirl.create(:category) }
+    sequence(:name) { |n| "タスク#{n}" }
+    description "タスクの説明"
+    status "status"
+    completed_at nil
   end
-
 end
