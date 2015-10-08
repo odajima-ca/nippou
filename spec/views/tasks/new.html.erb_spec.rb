@@ -2,12 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'tasks/new', type: :view do
   before(:each) do
-    assign(:task, Task.new(
-      category: nil,
-      name: 'Name',
-      description: 'MyText',
-      status: 'Status'
-    ))
+    assign(:task, FactoryGirl.build(:task))
   end
 
   it 'renders new task form' do

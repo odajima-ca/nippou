@@ -1,13 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe 'tasks/edit', type: :view do
+  let(:task) { FactoryGirl.create(:task) }
+
   before(:each) do
-    @task = assign(:task, Task.create!(
-      category: nil,
-      name: 'Name',
-      description: 'MyText',
-      status: 'Status'
-    ))
+    @task = assign(:task, task)
   end
 
   it 'renders the edit task form' do
