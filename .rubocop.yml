@@ -6,6 +6,7 @@ AllCops:
     - db/seeds.rb
     - spec/spec_helper.rb
     - spec/rails_helper.rb
+    - lib/tasks/auto_annotate_models.rake
     - Gemfile
     - Guardfile
   # By default, the rails cops are not run. Override in project or home

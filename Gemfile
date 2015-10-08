@@ -51,4 +51,6 @@ group :development, :test do
   gem 'guard-rubocop'
 
   gem 'factory_girl_rails'
+
+  gem 'annotate'
 end
