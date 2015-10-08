@@ -49,4 +49,6 @@ group :development, :test do
 
   gem 'rubocop', require: false
   gem 'guard-rubocop'
+
+  gem 'factory_girl_rails'
 end
