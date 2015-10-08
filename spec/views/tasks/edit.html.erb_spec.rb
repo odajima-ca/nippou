@@ -1,27 +1,27 @@
 require 'rails_helper'
 
-RSpec.describe "tasks/edit", type: :view do
+RSpec.describe 'tasks/edit', type: :view do
   before(:each) do
     @task = assign(:task, Task.create!(
-      :category => nil,
-      :name => "MyString",
-      :description => "MyText",
-      :status => "MyString"
+      category: nil,
+      name: 'Name',
+      description: 'MyText',
+      status: 'Status'
     ))
   end
 
-  it "renders the edit task form" do
+  it 'renders the edit task form' do
     render
 
-    assert_select "form[action=?][method=?]", task_path(@task), "post" do
+    assert_select 'form[action=?][method=?]', task_path(@task), 'post' do
 
-      assert_select "input#task_category_id[name=?]", "task[category_id]"
+      assert_select 'input#task_category_id[name=?]', 'task[category_id]'
 
-      assert_select "input#task_name[name=?]", "task[name]"
+      assert_select 'input#task_name[name=?]', 'task[name]'
 
-      assert_select "textarea#task_description[name=?]", "task[description]"
+      assert_select 'textarea#task_description[name=?]', 'task[description]'
 
-      assert_select "input#task_status[name=?]", "task[status]"
+      assert_select 'input#task_status[name=?]', 'task[status]'
     end
   end
 end

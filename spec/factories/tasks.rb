@@ -20,8 +20,8 @@ FactoryGirl.define do
   factory :task do
     sequence(:category) { FactoryGirl.create(:category) }
     sequence(:name) { |n| "タスク#{n}" }
-    description "タスクの説明"
-    status "status"
+    description 'タスクの説明'
+    status 'status'
     completed_at nil
   end
 end
