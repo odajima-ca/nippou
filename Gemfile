@@ -43,5 +43,7 @@ group :development, :test do
   gem 'spring'
 
   gem 'guard'
-end
 
+  gem 'rspec-rails'
+  gem 'guard-rspec', require: false
+end
