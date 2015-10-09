@@ -178,6 +178,43 @@ RSpec.describe TasksController, type: :controller do
     end
   end
 
+  describe 'PUT #done' do
+    context 'with valid params' do
+      it 'updates the requested task' do
+        task = Task.create! valid_attributes
+        put :done, { id: task.to_param }, valid_session
+        task.reload
+        expect(task.done?).to be_truthy
+      end
+
+      it 'assigns the requested task as @task' do
+        task = Task.create! valid_attributes
+        put :done, { id: task.to_param }, valid_session
+        expect(assigns(:task)).to eq(task)
+      end
+
+      it 'redirects to the task' do
+        task = Task.create! valid_attributes
+        put :done, { id: task.to_param }, valid_session
+        expect(response).to redirect_to(tasks_url)
+      end
+    end
+
+    context 'with invalid params' do
+      it 'assigns the task as @task' do
+        task = Task.create! valid_attributes
+        put :done, { id: task.to_param }, valid_session
+        expect(assigns(:task)).to eq(task)
+      end
+
+      it "re-renders the 'edit' template" do
+        task = Task.create! valid_attributes
+        put :done, { id: task.to_param }, valid_session
+        expect(response).to redirect_to(tasks_url)
+      end
+    end
+  end
+
   describe 'DELETE #destroy' do
     it 'destroys the requested task' do
       task = Task.create! valid_attributes

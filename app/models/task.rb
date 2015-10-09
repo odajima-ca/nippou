@@ -24,4 +24,10 @@ class Task < ActiveRecord::Base
   validates :category_id, presence: true
   validates :name, presence: true
   validates :status, presence: true
+
+  before_update :completed, id: :done?
+
+  def completed
+    self.completed_at = Time.current
+  end
 end

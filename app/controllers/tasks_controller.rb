@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy, :doing]
+  before_action :set_task, only: [:show, :edit, :update, :destroy, :doing, :done]
 
   # GET /tasks
   # GET /tasks.json
@@ -56,6 +56,20 @@ class TasksController < ApplicationController
   def doing
     respond_to do |format|
       if @task.doing!
+        format.html { redirect_to tasks_url, notice: 'Task was successfully updated.' }
+        format.json { redirect_to tasks_url, notice: 'Task was successfully updated.', format: :json }
+      else
+        format.html { redirect_to tasks_url, alert: 'Task was not successfully updated.' }
+        format.json { redirect_to tasks_url, alert: 'Task was successfully updated.', format: :json }
+      end
+    end
+  end
+
+  # PATCH/PUT /tasks/1/done
+  # PATCH/PUT /tasks/1/done.json
+  def done
+    respond_to do |format|
+      if @task.done!
         format.html { redirect_to tasks_url, notice: 'Task was successfully updated.' }
         format.json { redirect_to tasks_url, notice: 'Task was successfully updated.', format: :json }
       else

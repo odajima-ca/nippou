@@ -39,4 +39,19 @@ RSpec.describe Task, type: :model do
       end
     end
   end
+
+  describe '#done!' do
+    let!(:task) { FactoryGirl.create(:task, status: :doing) }
+    subject(:exec) { task.done! }
+
+    it 'ステータスがdoneになること' do
+      exec
+      expect(task.done?).to be_truthy
+    end
+
+    it 'complted_atに日付が入ること' do
+      exec
+      expect(task.completed_at).to_not be_nil
+    end
+  end
 end
