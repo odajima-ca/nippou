@@ -12,7 +12,7 @@ RSpec.describe 'tasks/edit', type: :view do
 
     assert_select 'form[action=?][method=?]', task_path(@task), 'post' do
 
-      assert_select 'input#task_category_id[name=?]', 'task[category_id]'
+      assert_select 'select#task_category_id[name=?]', 'task[category_id]'
 
       assert_select 'input#task_name[name=?]', 'task[name]'
 
