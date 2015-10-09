@@ -6,7 +6,7 @@
 #  category_id  :integer          not null
 #  name         :string           not null
 #  description  :text
-#  status       :string           not null
+#  status       :integer          not null
 #  completed_at :datetime
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
