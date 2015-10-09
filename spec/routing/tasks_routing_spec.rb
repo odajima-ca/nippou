@@ -32,6 +32,14 @@ RSpec.describe TasksController, type: :routing do
       expect(patch: '/tasks/1').to route_to('tasks#update', id: '1')
     end
 
+    it 'routes to #doing via PUT' do
+      expect(put: '/tasks/1/doing').to route_to('tasks#doing', id: '1')
+    end
+
+    it 'routes to #doing via PATCH' do
+      expect(patch: '/tasks/1/doing').to route_to('tasks#doing', id: '1')
+    end
+
     it 'routes to #destroy' do
       expect(delete: '/tasks/1').to route_to('tasks#destroy', id: '1')
     end

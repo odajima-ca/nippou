@@ -18,7 +18,9 @@ RSpec.describe 'tasks/edit', type: :view do
 
       assert_select 'textarea#task_description[name=?]', 'task[description]'
 
-      assert_select 'input#task_status[name=?]', 'task[status]'
+      assert_select 'input#task_status_todo[name=?]', 'task[status]'
+      assert_select 'input#task_status_doing[name=?]', 'task[status]'
+      assert_select 'input#task_status_done[name=?]', 'task[status]'
     end
   end
 end
