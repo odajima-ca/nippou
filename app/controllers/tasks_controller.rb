@@ -14,7 +14,7 @@ class TasksController < ApplicationController
 
   # GET /tasks/new
   def new
-    @task = Task.new
+    @task = Task.todo.new
   end
 
   # GET /tasks/1/edit
@@ -24,7 +24,7 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    @task = Task.new(task_params)
+    @task = Task.todo.new(task_params)
 
     respond_to do |format|
       if @task.save

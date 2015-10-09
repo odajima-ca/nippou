@@ -23,10 +23,16 @@
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.text_field :status %>
-  </div>
+  <% if f.object.persisted? %>
+    <div class="field">
+      <%= f.label :status do %>
+        <% f.object.class.statuses.each do |key, value| %>
+          <%= f.radio_button :status, key %>
+          <%= f.label "status_#{key}", key %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
   <div class="field">
     <%= f.label :completed_at %><br>
     <%= f.datetime_select :completed_at %>

@@ -24,11 +24,11 @@ RSpec.describe TasksController, type: :controller do
   # Task. As you add validations to Task, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) do
-    FactoryGirl.build(:task).attributes
+    FactoryGirl.attributes_for(:task)
   end
 
   let(:invalid_attributes) do
-    FactoryGirl.build(:task, name: nil).attributes
+    FactoryGirl.attributes_for(:task, name: nil)
   end
 
   # This should return the minimal set of values that should be in the session
@@ -103,14 +103,15 @@ RSpec.describe TasksController, type: :controller do
   describe 'PUT #update' do
     context 'with valid params' do
       let(:new_attributes) do
-        FactoryGirl.build(:task).attributes
+        FactoryGirl.attributes_for(:task, status: :doing)
       end
 
       it 'updates the requested task' do
+        p valid_attributes
         task = Task.create! valid_attributes
         put :update, { id: task.to_param, task: new_attributes }, valid_session
         task.reload
-        expect(task.name).to eq new_attributes['name']
+        expect(task.name).to eq new_attributes[:name]
       end
 
       it 'assigns the requested task as @task' do

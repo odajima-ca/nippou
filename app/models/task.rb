@@ -17,6 +17,8 @@
 #
 
 class Task < ActiveRecord::Base
+  enum status: %i(todo doing done)
+
   belongs_to :category
 
   validates :category_id, presence: true
