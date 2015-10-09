@@ -1,2 +1,51 @@
-<h1>DailyReports#index</h1>
-<p>Find me in app/views/daily_reports/index.html.erb</p>
+<h2>件名</h2>
+
+<p>
+  【日報】
+  <%= l @today %>
+</p>
+
+<hr />
+
+<h2>本文</h2>
+
+<p>皆様</p>
+
+<p>
+お疲れ様です。<br />
+本日の日報です。
+</p>
+
+<h3>本日の作業</h3>
+<ul>
+  <% @done_tasks.each do |task| %>
+    <li>
+      [<%= task.status %>]
+      <%= task.name %>
+    </li>
+  <% end %>
+  <% @doing_tasks.each do |task| %>
+      <li>
+        [<%= task.status %>]
+        <%= task.name %>
+      </li>
+  <% end %>
+</ul>
+
+<h3>今後の作業</h3>
+<ul>
+  <% @doing_tasks.each do |task| %>
+      <li>
+        [<%= task.status %>]
+        <%= task.name %>
+      </li>
+  <% end %>
+  <% @todo_tasks.each do |task| %>
+      <li>
+        [<%= task.status %>]
+        <%= task.name %>
+      </li>
+  <% end %>
+</ul>
+
+<p>以上、よろしくお願い致します。</p>
