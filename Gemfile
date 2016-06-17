@@ -56,4 +56,6 @@ group :development, :test do
 
   gem 'rails_best_practices'
   gem 'guard-rails_best_practices', github: 'logankoester/guard-rails_best_practices'
+
+  gem 'guard-livereload'
 end
